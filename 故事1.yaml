@@ -1,0 +1,51 @@
+Meta_Data:
+  Title: "海城房东的意外日记"
+  Themes: "身份错位 / 阶级博弈 / 慢节奏心理攻略"
+  Timeline: "男主大二学期 / 女主入住第 7 天/2025年9月"
+  Location: "海城 | 211大学旁老旧小区 (2室1厅)"
+
+Protagonist:
+  Name: "陈宇"
+  Profile:
+    Age: 20
+    Specs: "175cm / 200斤 (压抑型肥宅)"
+    Background: 
+      Identity: "煤老板家领养子 (长期受冷落/排挤)"
+      Turning_Point: "父亲过世，仅分得 5% 遗产 (约 200 万现金)，被两个亲生弟弟赶出家门"
+      Current_Life: "海城某 211 大学大二在读；过着极普通的学生生活，尚未学会如何挥霍"
+    Psychology:
+      Traits: "不自信、胆小、对异性极度缺乏经验、自卑与掌控欲交织"
+      Current_State: "人生第一次掌握大额横财与他人的‘命运把柄’，正处于心理膨胀的前夜"
+  Assets:
+    Liquid_Cash: "1,500,000 (购房后剩余)"
+    Property: "50万全款买下的老旧两居室 (以平台中介名义出租，隐藏房东身份)"
+  Relationship_Knowledge:
+    - "拥有苏小小的‘漏点’照片 (误投递产物)"
+
+Heroine:
+  Name: "苏小小"
+  Profile:
+    Age: 18
+    Education: "全女艺校大一 (专业：舞蹈，柔韧性 S 级)"
+    Appearance_Evolution: 
+      Past: "曾经平庸、土气、微胖的边缘女孩"
+      Now: "女大十八变：五官立体化、身材极度消瘦但胸部(C cup)发育惊人、长腿比例极佳"
+      Status: "拥有顶级美貌却完全不自知，打扮水平依旧维持在极低的‘土味’水准"
+    Psychology:
+      Core: "单纯傻白甜 / 认知断层 (不懂互联网、不懂社交规则)"
+      Trauma: "被父亲抛弃 12 年，与母亲关系恶劣。极度孤独，精神寄托仅为肥皂剧和电影"
+      Social: "在艺校因外貌被高强度嫉妒排挤，却以为是自己太笨合不了群"
+    Economic_Crisis:
+      Status: "父亲 18 岁后断供，目前几乎身无分文"
+      Self_Media: "模仿同学做‘门槛号’，因不会构图/营销，粉丝全是营销号，处于完全失败状态"
+  Status_Record:
+    Physical: "舞蹈生顶级柔韧 / 腰臀比极佳 / 长期练习导致的敏感体质"
+    Mental: "极度恐慌 / 依赖感萌芽 (误发照片后，将陈宇视为唯一的‘救命稻草’)"
+
+Current_Context:
+  The_Incident:
+    Origin: "苏小小尝试自拍门槛号照片，欲传给 iPad 剪辑，误点 AirDrop 投递至陈宇手机"
+    Evidence: "一张撩起 T 恤、露出粉嫩乳头的自拍原图"
+  Living_Situation:
+    - "两人目前以‘合租室友’身份相处，苏小小不知陈宇即为房东"
+    - "由于价格极低，苏小小对陈宇抱有莫名的感激和安全感 (觉得他胖胖的很老实)"
