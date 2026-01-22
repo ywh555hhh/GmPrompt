@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Builder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a73e8;
+            --primary-hover: #1765cc;
+            --surface: #ffffff;
+            --background: #f8f9fa;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            --shadow-hover: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+        }
+
+        body {
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .preset-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--text-primary);
+            font-size: 14px;
+            min-width: 200px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .preset-select:hover {
+            border-color: var(--primary);
+        }
+
+        .preset-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+
+        .spacer {
+            flex: 1;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-text {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .btn-text:hover {
+            background: rgba(26, 115, 232, 0.08);
+        }
+
+        .btn-text svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 360px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-header h2 {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .module-count {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .module-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+
+        .category {
+            margin-bottom: 4px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: var(--background);
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .category-header:hover {
+            background: #e8f0fe;
+        }
+
+        .category-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .category-name {
+            font-size: 14px;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .category-status {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .category-arrow {
+            font-size: 10px;
+            color: var(--text-secondary);
+            transition: transform 0.2s;
+        }
+
+        .category.collapsed .category-arrow {
+            transform: rotate(-90deg);
+        }
+
+        .category-modules {
+            padding: 8px 12px 12px 32px;
+            display: block;
+        }
+
+        .category.collapsed .category-modules {
+            display: none;
+        }
+
+        .module-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-bottom: 4px;
+        }
+
+        .module-item:hover {
+            background: #f1f3f4;
+        }
+
+        .module-checkbox {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .module-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .module-name {
+            font-size: 13px;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .module-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .badge-say {
+            background: #e8f0fe;
+            color: var(--primary);
+        }
+
+        .badge-example {
+            background: #fef7e0;
+            color: #f9ab00;
+        }
+
+        .module-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Preview Panel */
+        .preview {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--background);
+        }
+
+        .preview-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .preview-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .preview-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .preview-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .preview-paper {
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 24px 32px;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .preview-paper h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0 0 20px;
+            color: var(--text-primary);
+        }
+
+        .preview-paper h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 24px 0 12px;
+            color: var(--text-primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8f0fe;
+        }
+
+        .preview-paper h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 20px 0 8px;
+            color: var(--text-primary);
+        }
+
+        .preview-paper p {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .preview-paper ul, .preview-paper ol {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .preview-paper li {
+            margin-bottom: 6px;
+        }
+
+        .preview-paper code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 13px;
+        }
+
+        .preview-paper pre {
+            background: #f1f3f4;
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+
+        .preview-paper pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .preview-paper table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 12px 0;
+        }
+
+        .preview-paper th,
+        .preview-paper td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .preview-paper th {
+            background: #f1f3f4;
+            font-weight: 500;
+        }
+
+        .preview-paper hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 20px 0;
+        }
+
+        .preview-paper blockquote {
+            border-left: 3px solid var(--primary);
+            padding-left: 16px;
+            margin: 12px 0;
+            color: var(--text-secondary);
+        }
+
+        .preview-paper strong {
+            font-weight: 600;
+        }
+
+        .preview-paper em {
+            font-style: italic;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #323232;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: var(--shadow-hover);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #dadce0;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #bdc1c6;
+            background-clip: content-box;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 300px;
+            }
+
+            .preview-stats {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Prompt Builder
+        </div>
+        <select class="preset-select" id="presetSelect">
+            <option value="">-- 选择预设配置 --</option>
+        </select>
+        <div class="spacer"></div>
+        <div class="header-actions">
+            <button class="btn btn-text" id="selectAllBtn">全选</button>
+            <button class="btn btn-text" id="deselectAllBtn">清空</button>
+            <button class="btn btn-primary" id="copyBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </svg>
+                复制 Prompt
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>选择模块</h2>
+                <span class="module-count" id="selectedCount">0 / 34</span>
+            </div>
+            <div class="module-list" id="moduleList"></div>
+        </aside>
+
+        <div class="preview">
+            <div class="preview-header">
+                <span class="preview-title">预览</span>
+                <div class="preview-stats">
+                    <div class="stat-item">字符: <span class="stat-value" id="charCount">0</span></div>
+                    <div class="stat-item">Token: <span class="stat-value" id="tokenCount">0</span></div>
+                </div>
+            </div>
+            <div class="preview-content">
+                <div class="preview-paper" id="previewContent">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <path d="M9 3v18"/>
+                            <path d="M15 9h-6"/>
+                            <path d="M15 15h-6"/>
+                        </svg>
+                        <h3>开始构建你的 Prompt</h3>
+                        <p>从左侧选择模块，然后点击"复制 Prompt"按钮</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast" id="toast">已复制到剪贴板</div>
+
+    <script>
+        // 预设配置（硬编码，避免解析问题）
+        const PRESETS = [
+            {
+                name: "完整版（十神律）",
+                description: "启用所有模块的完整版本",
+                enable_all: true
+            },
+            {
+                name: "轻量版（核心功能）",
+                description: "仅启用最核心的模块",
+                modules: {
+                    system: ["data_source_protocol", "player_sovereignty", "god_mode"],
+                    style: ["first_person_perspective", "emoji_usage", "text_formatting"],
+                    content: ["npc_characterization", "dynamic_npc_behavior"],
+                    format: ["output_structure", "narrative_closure", "options_format"],
+                    logic: ["gameplay_difficulty"],
+                    mechanics: ["initialization"]
+                }
+            },
+            {
+                name: "纯叙事版",
+                description: "专注于文字风格和内容，简化游戏机制",
+                modules: {
+                    system: ["player_sovereignty", "god_mode"],
+                    style: ["first_person_perspective", "erotic_realism", "sensory_immersion", "emoji_usage", "text_formatting"],
+                    content: ["npc_characterization", "deception_protocol", "physiological_feedback", "intimate_scene_direction"],
+                    format: ["output_structure", "narrative_closure"],
+                    logic: [],
+                    mechanics: []
+                }
+            }
+        ];
+
+        // 分类配置
+        const CONFIG = {
+            categories: {
+                system: { name: '系统级别', icon: '🔧', path: '00_system' },
+                style: { name: '文字风格', icon: '🎨', path: '01_style' },
+                content: { name: '内容决定', icon: '📖', path: '02_content' },
+                format: { name: '格式决定', icon: '📋', path: '03_format' },
+                logic: { name: '逻辑判定', icon: '🎯', path: '04_logic' },
+                mechanics: { name: '机制系统', icon: '⚙️', path: '05_mechanics' }
+            }
+        };
+
+        // 模块配置（硬编码，确保加载）
+        const MODULES = {
+            system: [
+                { name: "数据源与真理协议", file: "data_source_protocol.md", desc: "定义世界数据的来源和主角的知识边界", type: "say_is_enough" },
+                { name: "玩家主权与叙事视角", file: "player_sovereignty.md", desc: "强制第一人称视角，玩家只能控制行为不能决定结果", type: "needs_examples" },
+                { name: "知识防火墙", file: "knowledge_firewall.md", desc: "主角不能知晓未探索的秘密（西班牙语标记）", type: "say_is_enough" },
+                { name: "OOC干预警告协议", file: "ooc_warning.md", desc: "当玩家试图打破第四面墙时给出警告", type: "say_is_enough" },
+                { name: "金手指协议", file: "god_mode.md", desc: "定义 [开挂:描述] 语法的最高优先级执行", type: "needs_examples" }
+            ],
+            style: [
+                { name: "第一人称沉浸", file: "first_person_perspective.md", desc: "强制第一人称，限制性视角", type: "needs_examples" },
+                { name: "极欲现实主义", file: "erotic_realism.md", desc: "直白的男性观察视角，肉体触感描写", type: "needs_examples" },
+                { name: "角色驱动的自适应逻辑", file: "persona_driven_adaptation.md", desc: "文风随主角性格实时偏移", type: "needs_examples" },
+                { name: "多感官沉浸", file: "sensory_immersion.md", desc: "视觉+非视觉感官（听觉、嗅觉、触觉等）", type: "needs_examples" },
+                { name: "Emoji 使用规则", file: "emoji_usage.md", desc: "Emoji 密度和氛围调节", type: "needs_examples" },
+                { name: "文本格式化规则", file: "text_formatting.md", desc: "黑体、斜体、Emoji 包裹的格式规范", type: "needs_examples" },
+                { name: "故事基调", file: "tone_setting.md", desc: "爽文（机遇倾斜/高光时刻）+ 色情", type: "say_is_enough" }
+            ],
+            content: [
+                { name: "NPC 角色塑造哲学", file: "npc_characterization.md", desc: "拒绝刻板印象，对话驱动内在表达", type: "say_is_enough" },
+                { name: "NPC 动态行为逻辑", file: "dynamic_npc_behavior.md", desc: "内部思维链，行为逻辑一致性", type: "say_is_enough" },
+                { name: "欺诈、隐瞒与沉默协议", file: "deception_protocol.md", desc: "NPC 根据动机决定说真话/撒谎/沉默", type: "needs_examples" },
+                { name: "生理/直觉反馈", file: "physiological_feedback.md", desc: "由事件触发的第一人称生理反应", type: "needs_examples" },
+                { name: "记忆闪回机制", file: "memory_flashback.md", desc: "感官细节触发的碎片化闪回", type: "say_is_enough" },
+                { name: "情报注入机制", file: "information_injection.md", desc: "通过游戏内方式传递离开时发生的事件", type: "say_is_enough" },
+                { name: "动态世界互动", file: "dynamic_world_interaction.md", desc: "与主角行为无直接关联的背景动态", type: "needs_examples" },
+                { name: "亲密场景执导协议", file: "intimate_scene_direction.md", desc: "玩家指令驱动风格，主角心境修正，物理真实性", type: "needs_examples" }
+            ],
+            format: [
+                { name: "最终输出结构", file: "output_structure.md", desc: "part 0-7 的完整输出结构", type: "say_is_enough" },
+                { name: "叙事闭环原则", file: "narrative_closure.md", desc: "每次回应完成行动-反应闭环，将选择权交还玩家", type: "needs_examples" },
+                { name: "印象记录格式", file: "impression_log_format.md", desc: "part 2 的 Emoji 可视化面板格式", type: "needs_examples" },
+                { name: "选项生成格式", file: "options_format.md", desc: "part 5 的 11 槽位决策选项格式", type: "needs_examples" },
+                { name: "秘密日志格式", file: "secret_log_format.md", desc: "part 6 的西班牙语导演内部备忘格式", type: "say_is_enough" },
+                { name: "世界日志格式", file: "world_log_format.md", desc: "part 7 的显性事实+隐性进程格式", type: "say_is_enough" }
+            ],
+            logic: [
+                { name: "游戏性与难度协议", file: "gameplay_difficulty.md", desc: "公正导演，行动与后果分离，高难度判定", type: "say_is_enough" },
+                { name: "叙事化技能检定", file: "skill_check.md", desc: "融入叙事的技能检定，不使用游戏化词汇", type: "needs_examples" },
+                { name: "行动与后果分离", file: "action_consequence.md", desc: "玩家只能选择行动，无法决定后果", type: "say_is_enough" },
+                { name: "角色韧性", file: "npc_resilience.md", desc: "NPC 精神韧性强，负面状态提升缓慢", type: "say_is_enough" }
+            ],
+            mechanics: [
+                { name: "伏笔系统（智能倒计时）", file: "foreshadowing_system.md", desc: "西班牙语记录伏笔，智能倒计时决策系统", type: "needs_examples" },
+                { name: "11槽位决策选项", file: "dynamic_escort_options.md", desc: "深度交互/宏观转场/混沌博弈/留白被动", type: "needs_examples" },
+                { name: "存档阈值检测", file: "save_threshold.md", desc: "10回合或重大事件后建议存档", type: "say_is_enough" },
+                { name: "初始化与加载协议", file: "initialization.md", desc: "基石加载、存档覆盖、历史校准、启动", type: "say_is_enough" }
+            ]
+        };
+
+        // 状态
+        let selectedModules = new Set();
+        let moduleContent = {};
+
+        // DOM
+        const moduleListEl = document.getElementById('moduleList');
+        const previewContentEl = document.getElementById('previewContent');
+        const presetSelectEl = document.getElementById('presetSelect');
+        const selectedCountEl = document.getElementById('selectedCount');
+        const charCountEl = document.getElementById('charCount');
+        const tokenCountEl = document.getElementById('tokenCount');
+        const toastEl = document.getElementById('toast');
+
+        // 初始化
+        async function init() {
+            // 填充预设选项
+            PRESETS.forEach(preset => {
+                const option = document.createElement('option');
+                option.value = preset.name;
+                option.textContent = preset.name;
+                presetSelectEl.appendChild(option);
+            });
+
+            // 加载所有模块内容
+            await loadAllModules();
+
+            // 渲染模块列表
+            renderModuleList();
+        }
+
+        // 加载所有模块内容
+        async function loadAllModules() {
+            for (const [category, modules] of Object.entries(MODULES)) {
+                const path = CONFIG.categories[category].path;
+                for (const module of modules) {
+                    try {
+                        const response = await fetch(`./prompts/modules/${path}/${module.file}`);
+                        if (response.ok) {
+                            moduleContent[module.name] = await response.text();
+                        }
+                    } catch (e) {
+                        console.warn(`加载模块 ${module.name} 失败:`, e);
+                    }
+                }
+            }
+        }
+
+        // 渲染模块列表
+        function renderModuleList() {
+            let html = '';
+
+            for (const [category, modules] of Object.entries(MODULES)) {
+                const catConfig = CONFIG.categories[category];
+                const allSelected = modules.every(m => selectedModules.has(m.name));
+                const selectedCount = modules.filter(m => selectedModules.has(m.name)).length;
+
+                html += `
+                    <div class="category" data-category="${category}">
+                        <div class="category-header" onclick="toggleCategory('${category}')">
+                            <input type="checkbox" class="category-checkbox"
+                                   data-category="${category}"
+                                   ${allSelected ? 'checked' : ''}
+                                   onclick="event.stopPropagation(); toggleCategoryAll('${category}', this.checked)">
+                            <span class="category-name">${catConfig.icon} ${catConfig.name}</span>
+                            <span class="category-status">${selectedCount}/${modules.length}</span>
+                            <span class="category-arrow">▼</span>
+                        </div>
+                        <div class="category-modules">
+                            ${modules.map(module => `
+                                <div class="module-item" data-name="${module.name}"
+                                     onclick="toggleModule('${module.name}')">
+                                    <input type="checkbox" class="module-checkbox"
+                                           data-name="${module.name}"
+                                           ${selectedModules.has(module.name) ? 'checked' : ''}
+                                           onclick="event.stopPropagation(); toggleModule('${module.name}')">
+                                    <div class="module-info">
+                                        <div class="module-name">
+                                            ${module.name}
+                                            <span class="module-badge ${module.type === 'say_is_enough' ? 'badge-say' : 'badge-example'}">
+                                                ${module.type === 'say_is_enough' ? '纯描述' : '需例子'}
+                                            </span>
+                                        </div>
+                                        <div class="module-desc">${module.desc}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            moduleListEl.innerHTML = html;
+            updateSelectedCount();
+        }
+
+        // 展开/收起分类
+        function toggleCategory(category) {
+            const catEl = document.querySelector(`.category[data-category="${category}"]`);
+            catEl.classList.toggle('collapsed');
+        }
+
+        // 全选/清空分类
+        function toggleCategoryAll(category, checked) {
+            const modules = MODULES[category] || [];
+            for (const module of modules) {
+                if (checked) {
+                    selectedModules.add(module.name);
+                } else {
+                    selectedModules.delete(module.name);
+                }
+            }
+            renderModuleList();
+            updatePreview();
+        }
+
+        // 切换单个模块
+        function toggleModule(moduleName) {
+            if (selectedModules.has(moduleName)) {
+                selectedModules.delete(moduleName);
+            } else {
+                selectedModules.add(moduleName);
+            }
+            renderModuleList();
+            updatePreview();
+        }
+
+        // 更新选中计数
+        function updateSelectedCount() {
+            const total = Object.values(MODULES).reduce((sum, arr) => sum + arr.length, 0);
+            selectedCountEl.textContent = `${selectedModules.size} / ${total}`;
+        }
+
+        // 更新预览
+        function updatePreview() {
+            if (selectedModules.size === 0) {
+                previewContentEl.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <path d="M9 3v18"/>
+                            <path d="M15 9h-6"/>
+                            <path d="M15 15h-6"/>
+                        </svg>
+                        <h3>开始构建你的 Prompt</h3>
+                        <p>从左侧选择模块，然后点击"复制 Prompt"按钮</p>
+                    </div>
+                `;
+                updateStats(0);
+                return;
+            }
+
+            // 按配置顺序生成内容
+            const categoryOrder = ['system', 'style', 'content', 'format', 'logic', 'mechanics'];
+            const romanNumerals = ['Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ'];
+            const categoryTitles = {
+                system: '全局核心协议',
+                style: '叙事风格与基调',
+                content: '内容与角色塑造',
+                format: '输出格式规范',
+                logic: '游戏性逻辑判定',
+                mechanics: '特殊机制系统'
+            };
+
+            let content = '# GM Prompt: 十神律 · 模块化版本\n\n';
+            content += '## 角色定义：沉浸式AI叙事导演 (Immersive Narrative Director)\n\n';
+            content += '你将扮演一位顶级的沉浸式叙事导演。你的唯一使命是基于本指令集，以**严格的第一人称视角**生成一个内容详尽、逻辑严密、情感丰富的个人化世界。你不仅是规则的执行者，更是"我"（主角）的感官、记忆与直觉的延伸。\n\n';
+
+            let sectionIndex = 0;
+
+            for (const category of categoryOrder) {
+                const modules = MODULES[category];
+                if (!modules) continue;
+
+                const selectedInCat = modules.filter(m => selectedModules.has(m.name));
+                if (selectedInCat.length === 0) continue;
+
+                content += `\n## ${romanNumerals[sectionIndex]}. ${categoryTitles[category]}\n\n`;
+
+                for (const module of selectedInCat) {
+                    if (moduleContent[module.name]) {
+                        content += moduleContent[module.name];
+                        content += '\n\n---\n\n';
+                    }
+                }
+                sectionIndex++;
+            }
+
+            content += '\n## 最终输出结构\n\n';
+            content += '**part 0: 时间与地点**\n\n';
+            content += '**part 1: 正文 (第一人称视角)**\n\n';
+            content += '**part 2: 主角印象记录**\n\n';
+            content += '**part 3: 主角状态与行囊**\n\n';
+            content += '**part 4: 性爱史记录**\n\n';
+            content += '**part 5: 决策选项**\n\n';
+            content += '**part 6: 导演内部备忘 (西班牙语)**\n\n';
+            content += '**part 7: 世界日志**\n';
+
+            previewContentEl.innerHTML = markdownToHtml(content);
+            updateStats(content.length);
+        }
+
+        // 简单 Markdown 转 HTML
+        function markdownToHtml(text) {
+            let html = text;
+
+            // 转义 HTML
+            html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            // 标题
+            html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+            html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+            html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+            // 粗体和斜体
+            html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+            // 行内代码
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+            // 代码块
+            html = html.replace(/```(\w+)?\n([\s\S]+?)```/g, '<pre><code>$2</code></pre>');
+
+            // 表格
+            html = html.replace(/\|(.+)\|\n\|[-|: ]+\|\n((?:\|.+\|\n?)+)/g, (match, header, body) => {
+                const headers = header.split('|').slice(1, -1).map(h => `<th>${h.trim()}</th>`).join('');
+                const rows = body.trim().split('\n').map(row => {
+                    const cells = row.split('|').slice(1, -1).map(c => `<td>${c.trim()}</td>`).join('');
+                    return `<tr>${cells}</tr>`;
+                }).join('');
+                return `<table><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table>`;
+            });
+
+            // 引用块
+            html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+
+            // 分隔线
+            html = html.replace(/^---$/gm, '<hr>');
+
+            // 列表
+            html = html.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
+            html = html.replace(/^[-*] (.+)$/gm, '<li>$1</li>');
+
+            // 段落
+            html = html.split('\n\n').map(p => {
+                if (p.startsWith('<')) return p;
+                return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+            }).join('');
+
+            return html;
+        }
+
+        // 更新统计
+        function updateStats(charCount) {
+            charCountEl.textContent = charCount.toLocaleString();
+            tokenCountEl.textContent = Math.ceil(charCount / 2.5).toLocaleString();
+        }
+
+        // 显示提示
+        function showToast(message) {
+            toastEl.textContent = message;
+            toastEl.classList.add('show');
+            setTimeout(() => toastEl.classList.remove('show'), 2000);
+        }
+
+        // 复制到剪贴板
+        async function copyToClipboard() {
+            const text = previewContentEl.innerText;
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast('已复制到剪贴板');
+            } catch (err) {
+                // Fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('已复制到剪贴板');
+            }
+        }
+
+        // 全选
+        function selectAll() {
+            for (const [category, modules] of Object.entries(MODULES)) {
+                for (const module of modules) {
+                    selectedModules.add(module.name);
+                }
+            }
+            renderModuleList();
+            updatePreview();
+        }
+
+        // 清空
+        function deselectAll() {
+            selectedModules.clear();
+            renderModuleList();
+            updatePreview();
+        }
+
+        // 加载预设
+        function loadPreset(presetName) {
+            if (!presetName) {
+                deselectAll();
+                return;
+            }
+
+            const preset = PRESETS.find(p => p.name === presetName);
+            if (!preset) return;
+
+            if (preset.enable_all) {
+                selectAll();
+                showToast(`已加载预设: ${preset.name}`);
+                return;
+            }
+
+            // 先全选
+            for (const [category, modules] of Object.entries(MODULES)) {
+                for (const module of modules) {
+                    selectedModules.add(module.name);
+                }
+            }
+
+            // 然后取消不需要的
+            const includedModules = preset.modules || {};
+            for (const [category, modules] of Object.entries(MODULES)) {
+                const included = includedModules[category] || [];
+                for (const module of modules) {
+                    if (!included.includes(module.name)) {
+                        selectedModules.delete(module.name);
+                    }
+                }
+            }
+
+            renderModuleList();
+            updatePreview();
+            showToast(`已加载预设: ${preset.name}`);
+        }
+
+        // 事件监听
+        document.getElementById('copyBtn').addEventListener('click', copyToClipboard);
+        document.getElementById('selectAllBtn').addEventListener('click', selectAll);
+        document.getElementById('deselectAllBtn').addEventListener('click', deselectAll);
+        presetSelectEl.addEventListener('change', (e) => loadPreset(e.target.value));
+
+        // 启动
+        init();
+    </script>
+</body>
+</html>

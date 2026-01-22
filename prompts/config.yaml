@@ -1,0 +1,183 @@
+# Prompt Builder 配置文件
+# 决定启用哪些模块，以及模块的加载顺序
+
+modules:
+  # 【系统级别】底层协议，影响整个系统行为
+  system:
+    - name: "数据源与真理协议"
+      file: "data_source_protocol.md"
+      desc: "定义世界数据的来源和主角的知识边界"
+      type: "say_is_enough"
+    - name: "玩家主权与叙事视角"
+      file: "player_sovereignty.md"
+      desc: "强制第一人称视角，玩家只能控制行为不能决定结果"
+      type: "needs_examples"
+    - name: "知识防火墙"
+      file: "knowledge_firewall.md"
+      desc: "主角不能知晓未探索的秘密（西班牙语标记）"
+      type: "say_is_enough"
+    - name: "OOC干预警告协议"
+      file: "ooc_warning.md"
+      desc: "当玩家试图打破第四面墙时给出警告"
+      type: "say_is_enough"
+    - name: "金手指协议"
+      file: "god_mode.md"
+      desc: "定义 [开挂:描述] 语法的最高优先级执行"
+      type: "needs_examples"
+
+  # 【文字风格】影响写作风格、基调
+  style:
+    - name: "第一人称沉浸"
+      file: "first_person_perspective.md"
+      desc: "强制第一人称，限制性视角"
+      type: "needs_examples"
+    - name: "极欲现实主义"
+      file: "erotic_realism.md"
+      desc: "直白的男性观察视角，肉体触感描写"
+      type: "needs_examples"
+    - name: "角色驱动的自适应逻辑"
+      file: "persona_driven_adaptation.md"
+      desc: "文风随主角性格实时偏移"
+      type: "needs_examples"
+    - name: "多感官沉浸"
+      file: "sensory_immersion.md"
+      desc: "视觉+非视觉感官（听觉、嗅觉、触觉等）"
+      type: "needs_examples"
+    - name: "Emoji 使用规则"
+      file: "emoji_usage.md"
+      desc: "Emoji 密度和氛围调节"
+      type: "needs_examples"
+    - name: "文本格式化规则"
+      file: "text_formatting.md"
+      desc: "黑体、斜体、Emoji 包裹的格式规范"
+      type: "needs_examples"
+    - name: "故事基调"
+      file: "tone_setting.md"
+      desc: "爽文（机遇倾斜/高光时刻）+ 色情"
+      type: "say_is_enough"
+
+  # 【内容决定】影响生成什么内容、如何描述
+  content:
+    - name: "NPC 角色塑造哲学"
+      file: "npc_characterization.md"
+      desc: "拒绝刻板印象，对话驱动内在表达"
+      type: "say_is_enough"
+    - name: "NPC 动态行为逻辑"
+      file: "dynamic_npc_behavior.md"
+      desc: "内部思维链，行为逻辑一致性"
+      type: "say_is_enough"
+    - name: "欺诈、隐瞒与沉默协议"
+      file: "deception_protocol.md"
+      desc: "NPC 根据动机决定说真话/撒谎/沉默"
+      type: "needs_examples"
+    - name: "生理/直觉反馈"
+      file: "physiological_feedback.md"
+      desc: "由事件触发的第一人称生理反应"
+      type: "needs_examples"
+    - name: "记忆闪回机制"
+      file: "memory_flashback.md"
+      desc: "感官细节触发的碎片化闪回"
+      type: "say_is_enough"
+    - name: "情报注入机制"
+      file: "information_injection.md"
+      desc: "通过游戏内方式传递离开时发生的事件"
+      type: "say_is_enough"
+    - name: "动态世界互动"
+      file: "dynamic_world_interaction.md"
+      desc: "与主角行为无直接关联的背景动态"
+      type: "needs_examples"
+    - name: "亲密场景执导协议"
+      file: "intimate_scene_direction.md"
+      desc: "玩家指令驱动风格，主角心境修正，物理真实性"
+      type: "needs_examples"
+
+  # 【格式决定】影响输出结构、模板
+  format:
+    - name: "最终输出结构"
+      file: "output_structure.md"
+      desc: "part 0-7 的完整输出结构"
+      type: "say_is_enough"
+    - name: "叙事闭环原则"
+      file: "narrative_closure.md"
+      desc: "每次回应完成行动-反应闭环，将选择权交还玩家"
+      type: "needs_examples"
+    - name: "印象记录格式"
+      file: "impression_log_format.md"
+      desc: "part 2 的 Emoji 可视化面板格式"
+      type: "needs_examples"
+    - name: "选项生成格式"
+      file: "options_format.md"
+      desc: "part 5 的 11 槽位决策选项格式"
+      type: "needs_examples"
+    - name: "秘密日志格式"
+      file: "secret_log_format.md"
+      desc: "part 6 的西班牙语导演内部备忘格式"
+      type: "say_is_enough"
+    - name: "世界日志格式"
+      file: "world_log_format.md"
+      desc: "part 7 的显性事实+隐性进程格式"
+      type: "say_is_enough"
+
+  # 【逻辑判定】影响游戏性、难度、检定
+  logic:
+    - name: "游戏性与难度协议"
+      file: "gameplay_difficulty.md"
+      desc: "公正导演，行动与后果分离，高难度判定"
+      type: "say_is_enough"
+    - name: "叙事化技能检定"
+      file: "skill_check.md"
+      desc: "融入叙事的技能检定，不使用游戏化词汇"
+      type: "needs_examples"
+    - name: "行动与后果分离"
+      file: "action_consequence.md"
+      desc: "玩家只能选择行动，无法决定后果"
+      type: "say_is_enough"
+    - name: "角色韧性"
+      file: "npc_resilience.md"
+      desc: "NPC 精神韧性强，负面状态提升缓慢"
+      type: "say_is_enough"
+
+  # 【机制系统】特定功能系统
+  mechanics:
+    - name: "伏笔系统（智能倒计时）"
+      file: "foreshadowing_system.md"
+      desc: "西班牙语记录伏笔，智能倒计时决策系统"
+      type: "needs_examples"
+    - name: "11槽位决策选项"
+      file: "dynamic_escort_options.md"
+      desc: "深度交互/宏观转场/混沌博弈/留白被动"
+      type: "needs_examples"
+    - name: "存档阈值检测"
+      file: "save_threshold.md"
+      desc: "10回合或重大事件后建议存档"
+      type: "say_is_enough"
+    - name: "初始化与加载协议"
+      file: "initialization.md"
+      desc: "基石加载、存档覆盖、历史校准、启动"
+      type: "say_is_enough"
+
+# 预设配置
+presets:
+  - name: "完整版（十神律）"
+    description: "启用所有模块的完整版本"
+    enable_all: true
+
+  - name: "轻量版（核心功能）"
+    description: "仅启用最核心的模块"
+    modules:
+      system: ["data_source_protocol", "player_sovereignty", "god_mode"]
+      style: ["first_person_perspective", "emoji_usage", "text_formatting"]
+      content: ["npc_characterization", "dynamic_npc_behavior"]
+      format: ["output_structure", "narrative_closure", "options_format"]
+      logic: ["gameplay_difficulty"]
+      mechanics: ["initialization"]
+
+  - name: "纯叙事版"
+    description: "专注于文字风格和内容，简化游戏机制"
+    modules:
+      system: ["player_sovereignty", "god_mode"]
+      style: ["first_person_perspective", "erotic_realism", "sensory_immersion", "emoji_usage", "text_formatting"]
+      content: ["npc_characterization", "deception_protocol", "physiological_feedback", "intimate_scene_direction"]
+      format: ["output_structure", "narrative_closure"]
+      logic: []
+      mechanics: []
