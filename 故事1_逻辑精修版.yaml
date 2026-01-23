@@ -10,13 +10,13 @@ Protagonist:
   Profile:
     Age: 20
     Specs: "175cm / 200斤 (压抑型肥宅，缺乏锻炼导致的虚胖，常年伴随汗渍味)"
-    Background: 
+    Background:
       Origin: "4岁时从孤儿院被山西煤老板家庭领养"
-      Family_Dynamics: 
+      Family_Dynamics:
         - "领养父母：重男轻女，视其为‘用来挡灾的备用继承人’"
         - "两个弟弟：亲生儿子，从小排挤陈宇，抢走所有关注和资源"
         - "成长环境：物质丰裕但精神压抑，从未体验过真正的家庭温暖，像个‘幽灵’一样生活在豪宅角落"
-      Education_History: 
+      Education_History:
         - "小学到高中：被安排读贵族学校，但总是因阴郁肥胖被孤立"
         - "大学：坚持选择海城一所普通211大学，只为远离那个家"
       Inheritance_Case:
@@ -24,7 +24,7 @@ Protagonist:
         - "遗嘱分配：两个弟弟瓜分了绝大部分家产，陈宇仅得到‘人道主义遣散费’"
         - "最终所得：现金300万（需签署‘放弃遗产争夺协议’并断绝关系）"
     Psychology:
-      Core_Traits: 
+      Core_Traits:
         - "深度自卑：源自领养身份和长期的边缘化待遇，觉得自己‘不配’拥有美好"
         - "社交恐惧：对异性接触为零经验，连正常对话都紧张，只能通过网络满足幻想"
         - "掌控需求：现实中无力的他，极度渴望在某个私密空间内拥有绝对的主导权"
@@ -36,7 +36,7 @@ Protagonist:
       Current_State: "站在人生转折点，表面是被人嫌弃的死胖子，背地里是这间屋子的独裁者"
   Assets:
     Liquid_Cash: "1,500,000 (购房及装修税费后剩余，存死期)"
-    Property: 
+    Property:
       - "海城大学城边缘老旧回迁小区 2室1厅 (120万全款购入，捡漏急售房)"
       - "出租方式：通过‘大学城校园墙/豆瓣小组’发布，伪装成‘二房东’找室友"
       - "租金设定：1200元/月 (低于市场价1600元)，押一付一，只为筛选单纯急租的学生"
@@ -55,7 +55,7 @@ Heroine:
   Name: "苏小小"
   Profile:
     Age: 18
-    Education: 
+    Education:
       - "海城艺术学院舞蹈系大一"
       - "专业水平：中等偏下，但足够努力（属于笨鸟先飞型）"
       - "考学原因：父亲为完成亡妻遗愿强制安排，她自己其实很迷茫"
@@ -80,7 +80,7 @@ Heroine:
         - "化妆技术为零，素颜出门，却经常被误以为是‘心机素颜妆’"
         - "对自身吸引力毫无概念，不理解为什么男生总盯着她看"
     Psychology:
-      Core_Personality: 
+      Core_Personality:
         - "极度单纯：成长环境封闭，缺乏社会经验，容易轻信他人"
         - "孤独成瘾：习惯一个人，反而害怕群体活动，有轻微社恐"
         - "认知断层：无法理解复杂的人际关系和网络梗，反射弧长"
@@ -96,7 +96,7 @@ Heroine:
     Self_Media_Attempt:
       Motivation: "模仿班上同学（李嘉），以为这样能‘变得受欢迎’并赚点生活费"
       Platform: "小红书（XHS）"
-      Content: 
+      Content:
         - "类型：舞蹈练习日常、生活碎片"
         - "质量：构图混乱、光线差、角度怪异（直男视角）"
         - "主题：完全不懂热点和流量密码，只会笨拙模仿"
@@ -120,7 +120,7 @@ Current_Context:
   The_Incident:
     Time: "2025年9月15日 晚上10:23（闷热的秋老虎夜晚）"
     Location: "苏小小租住的次卧"
-    Situation: 
+    Situation:
       - "苏小小尝试拍摄‘门槛号’素材，笨拙地模仿网红撩衣动作"
       - "计划流程：手机拍摄 → AirDrop到iPad → 剪辑发布"
       - "实际操作：因紧张手抖，且iPad与陈宇的MacBook名称相似（都叫‘MacBook Pro’），误点了陈宇的设备"
@@ -303,14 +303,14 @@ Current_Context:
 环境细节补充:
   隔音等级: |
     轻钢龙骨隔断墙（二房东改造通病）。隔音效果极差，深夜里，陈宇能清晰听到隔壁苏小小翻身时床板的吱呀声，甚至是她做噩梦时的呓语。这让他觉得两人仿佛睡在一张床上。
-  
+
   浴室博弈: |
     共用热水器加热极慢。苏小小每次洗完澡，浴室里都会留下混合着廉价硫磺皂和少女体温的潮湿水汽，镜子上全是雾气。陈宇习惯在此时进入，赤身裸体地站在她刚刚站过的地方，享受这种"间接体液接触"的窒息感。
 
 苏小小生理细节补充:
   舞蹈生本能: |
     即便在看肥皂剧时，苏小小也会下意识地在沙发上做横叉或竖叉。这种身体的极度舒展，使得她最私密的部位总是处于一种无防备的、紧绷的状态，而她对此毫无察觉。
-  
+
   触觉敏感度: |
     由于长期拉伸，她的皮肤对痛觉和触觉极其敏感。稍微用力抓握就会留下红痕（对应陈宇潜在的支配欲）。每当陈宇无意间触碰到她的皮肤，她都会像过电一样轻颤，这让陈宇更是欲罢不能。
 
@@ -338,27 +338,27 @@ Current_Context:
 Banco_de_Semillas:
   Lineas_de_Mundo_Oculto:
     - 'La Deuda de Sangre: El padre de Su Xiaoxiao debe 40 millones a la familia Chen. Chen Yu posee legalmente su deuda vital.'
-    - 'El Observador: La pared del dormitorio de Su Xiaoxiao tiene un conducto de ventilaci��n falso. Se puede escuchar su respiraci��n desde el otro lado.'
+    - 'El Observador: La pared del dormitorio de Su Xiaoxiao tiene un conducto de ventilaci��n falso. Se puede escuchar su respiraci��n desde el otro lado.'
     - 'Identidad Robada: Detectives privados contratados por los hermanos de Chen Yu vigilan la casa. Esperan un error para anular el acuerdo de herencia.'
 
   Semillas_Corto_Plazo:
     - 'El Yogurt: Falta un yogurt de aloe vera en la nevera. Ella tiene un rastro blanco y pegajoso en la comisura del labio.'
-    - 'La Ropa Interior: El aro met��lico de su sost��n barato se ha roto y le ha pinchado la piel debajo del pecho izquierdo.'
-    - 'El Ba?o: El desag��e de la ducha est�� atascado con cabellos largos y negros. El agua jabonosa no baja.'
-    - 'La Pesadilla: A las 3 AM, ella grita ''Pap��, no me vendas'' en sue?os. La pared delgada transmite la vibraci��n.'
-    - 'El Mensaje: Su tel��fono vibra en la mesa. Un mensaje de ''Cobrador'': ''D��nde est��s, princesa?''.'
+    - 'La Ropa Interior: El aro met��lico de su sost��n barato se ha roto y le ha pinchado la piel debajo del pecho izquierdo.'
+    - 'El Ba?o: El desag��e de la ducha est�� atascado con cabellos largos y negros. El agua jabonosa no baja.'
+    - 'La Pesadilla: A las 3 AM, ella grita ''Pap��, no me vendas'' en sue?os. La pared delgada transmite la vibraci��n.'
+    - 'El Mensaje: Su tel��fono vibra en la mesa. Un mensaje de ''Cobrador'': ''D��nde est��s, princesa?''.'
 
   Semillas_Medio_Plazo:
-    - 'La C��mara: Ella cree que la luz roja del router es una c��mara oculta, pero comienza a vestirse mejor frente a ella.'
-    - 'El Perfume: Tu camisa sucia en el cesto ha sido movida. Huele ligeramente a su champ�� barato.'
-    - 'La Cuenta: Historial de b��squeda en el iPad compartido: ''c��mo vender fotos de pies para pagar alquiler''.'
+    - 'La C��mara: Ella cree que la luz roja del router es una c��mara oculta, pero comienza a vestirse mejor frente a ella.'
+    - 'El Perfume: Tu camisa sucia en el cesto ha sido movida. Huele ligeramente a su champ�� barato.'
+    - 'La Cuenta: Historial de b��squeda en el iPad compartido: ''c��mo vender fotos de pies para pagar alquiler''.'
     - 'El Espejo: Una huella de mano peque?a y vaporosa en el espejo del ba?o a la altura de su cintura.'
-    - 'El Regalo: Ella compr�� un llavero barato para ti con sus ��ltimos 10 yuanes, escondido en su zapato.'
+    - 'El Regalo: Ella compr�� un llavero barato para ti con sus ��ltimos 10 yuanes, escondido en su zapato.'
 
   Semillas_Largo_Plazo:
-    - 'El AirDrop: Su iPad sincroniz�� la foto del ''accidente'' con la nube familiar de Chen Yu. Los hermanos la ver��n pronto.'
-    - 'El Contrato: La cl��usula 7 est�� escrita con tinta t��rmica. Revela: ''El inquilino acepta pagar con servicios si no hay efectivo''.'
-    - 'La Identidad: Ella encuentra tu carnet de la biblioteca de la ''Escuela Noble''. Descubre que no eres pobre.'
-    - 'El Embarazo: Su ciclo menstrual se ha retrasado 10 d��as por estr��s. Ella cree irracionalmente que es por el aire compartido.'
-    - 'El Diario: En su diario secreto, te llama ''El Carcelero Amable''. Ha desarrollado S��ndrome de Estocolmo.'
+    - 'El AirDrop: Su iPad sincroniz�� la foto del ''accidente'' con la nube familiar de Chen Yu. Los hermanos la ver��n pronto.'
+    - 'El Contrato: La cl��usula 7 est�� escrita con tinta t��rmica. Revela: ''El inquilino acepta pagar con servicios si no hay efectivo''.'
+    - 'La Identidad: Ella encuentra tu carnet de la biblioteca de la ''Escuela Noble''. Descubrwoe que no eres pobre.'
+    - 'El Embarazo: Su ciclo menstrual se ha retrasado 10 d��as por estr��s. Ella cree irracionalmente que es por el aire compartido.'
+    - 'El Diario: En su diario secreto, te llama ''El Carcelero Amable''. Ha desarrollado S��ndrome de Estocolmo.'
 

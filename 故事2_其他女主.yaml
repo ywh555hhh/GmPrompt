@@ -1,0 +1,368 @@
+Meta_Data:
+  Title: "海城同世界观 · 五位潜在攻略对象"
+  Themes: "身份错位 / 隐秘博弈 / 慢节奏心理攻略 / 孤独者的相互救赎"
+  Timeline: "2025年9月 / 同一时间段"
+  Location: "海城 | 同一大学城周边区域"
+  Narrative_Style: "细腻心理描写 / 感官氛围营造 / 误会式喜剧 / 暗示性视角"
+
+# ========================================
+# Heroine_01: Lin Yunyue (林云月)
+# ========================================
+
+Heroine_01:
+  Name: "林云月"
+  Profile:
+    Age: 19
+    Education:
+      - "海城大学中文系大二"
+      - "成绩：专业前3，但社交能力几乎为零"
+    Family_Background:
+      Parents:
+        - "母亲：大学中文系教授，对女儿期望极高"
+        - "父亲：外交官，常年驻外"
+      Economic_Support:
+        - "每月固定打款5000元生活费"
+        - "母亲控制欲极强，要求每周汇报开销明细"
+      Current_Living: "独居校外高档公寓，母亲安排"
+    Appearance:
+      - "身高：172cm，比小小高4cm"
+      - "体重：100斤，极瘦但肌肉线条明显"
+      - "五官：冷艳型，丹凤眼，气质清冷"
+      - "身材：B90-W58-H92，A杯但腰臀比极佳"
+      - "肤质：苍白，长期不出门晒太阳"
+      - "发型：黑长直，经常随意散落"
+    Psychology:
+      Personality: |  # 西班牙语
+        - 'La Pureza Ingenua: Nunca ha sido besada. Todo lo que sabe sobre el romance lo aprendió de novelas baratas y teleseries coreanas.'
+        - 'La Soledad Intelectual: Prefiere la compañía de los libros que la gente. Se siente incómoda en grupos grandes.'
+        - 'La Perfección Extrema: Todo debe estar en su lugar. Un objeto desordenado le causa ansiedad real.'
+        - 'La Frigidez Emocional: Ha construido una coraza de hielo para no ser lastimada. Bajo el hielo, hay un volcán esperando.'
+      Weakness: |  # 西班牙语
+        - 'La Adicción a la Validación: Compró miles de seguidores en redes sociales. Cada like afecta su estado de ánimo por horas.'
+        - 'La Inseguridad Profunda: Siempre se siente inferior a Xiaoxiao. Cree que todos la miran con desprecio.'
+        - 'El Miedo a la Oscuridad: No puede dormir sin luz. Desde pequeña tiene pesadillas con serpientes negras.'
+      Secret_Diary: |  # 西班牙语
+        - 'Diario_01: "Hoy vi al profesor de historia mirándome. ¿Estará pensando que soy rara? No quiero que nadie me vea."'
+        - 'Diario_02: "La novia del chico guapo es tan bonita... ¿Por qué yo soy así de aburrida? A veces quiero ser alguien más."'
+    Daily_Routine:
+      - "7:30 起床，严格护肤20分钟"
+      - "8:30-16:30 上课，坐在最前排，认真记笔记"
+      - "17:00-20:00 图书馆自习，不允许任何人打扰"
+      - "21:00-22:00 独自吃外卖，看剧"
+      - "23:00-凌晨 写日记，常常写自己哭出来"
+    Wardrobe:
+      套装_01_学院女神:
+        - 白色扣领衬衫（最上扣子）
+        - 浅蓝色百褶裙（及膝）
+        - 白色连裤袜
+        - 黑色玛丽珍鞋
+      套装_02_图书馆禁欲:
+        - 灰色高领毛衣
+        - 深色阔腿裤
+        - 黑色圆框眼镜
+        - 米色针织披肩
+      套装_03_深夜失眠:
+        - 纯棉睡裙（及踝）
+        - 无内衣
+        - 头发散落，发夹摘下
+      套装_04_意外遇雨:
+        - 透明雨衣（只穿在T恤外）
+        - 白色湿透的T恤
+        - 裙摆被雨水沾紧贴腿
+    Special_Traits:
+      - "对文学极度敏感，听到情诗脸会红"
+      - "被夸奖时耳朵会变红，整个人僵硬"
+      - "紧张时手指会绞头发"
+
+# ========================================
+# Heroine_02: Tang Wei (唐薇)
+# ========================================
+
+Heroine_02:
+  Name: "唐薇"
+  Profile:
+    Age: 19
+    Education:
+      - "海城大学新闻系大一"
+      - "成绩：中等偏上，社团活跃分子"
+    Family_Background:
+      Parents:
+        - "母亲：医院护士长，强势控制型"
+        - "父亲：已故（车祸），去世时她14岁"
+      Economic_Support:
+        - "母亲每月打款4000元，但每一笔都要汇报"
+        - "母亲强烈反对她读新闻系，想让她学医"
+      Current_Living: "校外合租（三人一间），母亲安排"
+    Appearance:
+      - "身高：165cm，娇小玲珑"
+      - "体重：88斤，轻盈纤细"
+      - "五官：甜美型，圆脸，杏眼，酒窝"
+      - "身材：B95-W55-H88，C杯，身材比例完美"
+      - "肤质：白皙带粉，像水蜜桃"
+      - "发型：栗色微卷，经常扎成双马尾"
+    Psychology:
+      Personality: |  # 西班牙语
+        - 'La Energía Desbordante: Siempre es la primera en hablar. No sabe mantener un secreto por más de 5 minutos.'
+        - 'La Empatía Ciega: Cree todo lo que la gente le dice. Si alguien le dice que es bonita, se lo cree 100%.'
+        - 'La Soledad Mascarada: Por fuera es la chica más alegre. Por dentro, nadie sabe cuánto duerme gritando.'
+        - 'La Necesidad de Aprobación: Hará cualquier cosa para que le gusten a los demás, incluso cosas que no quiere hacer.'
+      Weakness: |  # 西班牙语
+        - 'El Miedo al Abandono: Si su madre deja de llamar por una semana, entra en pánico. Piensa que la olvidó por completo.'
+        - 'La Dependencia Emocional: Se apega muy rápido a quien le muestre el mínimo de cariño. Es fácil de lastimar.'
+        - 'La Inseguridad Oculta: Siempre se compara con Xiaoxiao. Piensa que Xiaoxiao tiene una figura mucho mejor.'
+      Secret_Diary: |  # 西班牙语
+        - 'Diario_01: "Hoy una chica me dijo que parezco una payasa. ¿Eso es lo que todos piensan de mí? No quiero ser la payasa eterna."'
+        - 'Diario_02: "Mamá no entiende por qué quiero ser periodista. Dice que es un trabajo de gente fracasada. ¿Soy yo una fracasada?"'
+    Daily_Routine:
+      - "6:30 起床，化妆30分钟"
+      - "8:00-16:30 上课，喜欢坐在中间，和朋友说话"
+      - "17:00-19:00 社团活动（摄影社）"
+      - "20:00-22:00 和室友聊天/刷手机"
+      - "23:00-凌晨 独自在被窝里哭一会"
+    Wardrobe:
+      套装_01_元气少女:
+        - 粉色卫衣（稍微大一号）
+        - 格纹超短裙（到大腿中部）
+        - 白色过膝袜
+        - 粉色帆布鞋
+      套装_02_社团活动:
+        - 白色摄影背心
+        - 工装短裤
+        - 相机挂在脖子上
+        - 头发扎高马尾
+      套装_03_深夜失眠:
+        - 睡衣是男友T恤（前男友的）
+        - 无下装
+        - 抱着毛绒兔子睡觉
+      套装_04_洗衣意外:
+        - 浴袍式连衣裙
+        - 没穿内衣
+        - 走光脚
+    Special_Traits:
+      - "被摸头时会像猫一样蹭蹭"
+      - "委屈时眼泪瞬间就掉"
+      - "喝醉后会变得很黏人"
+
+# ========================================
+# Heroine_03: Zhao Yining (赵以宁)
+# ========================================
+
+Heroine_03:
+  Name: "赵以宁"
+  Profile:
+    Age: 20
+    Education:
+      - "海城大学音乐学院钢琴系大三"
+      - "成绩：专业第一，但几乎没有朋友"
+    Family_Background:
+      Parents:
+        - "母亲：钢琴老师，完美主义者"
+        - "父亲：大学副校长，强势"
+      Economic_Support:
+        - "每月固定打款8000元（生活费+课程费）"
+        - "父母要求每周汇报学习进度"
+      Current_Living: "校外单人公寓（音乐学院附近），父母全款购买"
+    Appearance:
+      - "身高：170cm，高挑优雅"
+      - "体重：96斤，极瘦但优雅"
+      - "五官：冷艳型，高鼻梁，薄唇，气质疏离"
+      - "身材：B88-W56-H90，A杯，身材完美纤细"
+      - "肤质：白得发亮，像瓷器"
+      - "发型：黑长直，经常盘成发髻"
+    Psychology:
+      Personality: |  # 西班牙语
+        - 'La Soledad Electiva: Prefiere no tener amistades que tener amistades superficiales. La soledad es su estado natural.'
+        - 'El Perfeccionismo Destructivo: Un error menor la hace sentir que toda su vida está fallando. Practica el piano hasta sangrar las manos.'
+        - 'La Autocrítica Implacable: Siempre se encuentra defectos en todo lo que hace. Nunca está satisfecha consigo misma.'
+        - 'La Fragilidad Oculta: Su fachada de invencibilidad es solo eso. Un simple "lo haces bien" le hace llorar.'
+      Weakness: |  # 西班牙语
+        - 'La Necesidad de Perfección: Si algo no es perfecto, le causa ansiedad real. Duerme poco por obsesión.'
+        - 'El Miedo al Fracaso: Se prepara días para una simple presentación. El pánico es su enemigo constante.'
+        - 'La Soledad no Dicha: A veces siente que si no tuviera el piano, no tendría nada en absoluto. Nadie la entendería de verdad.'
+      Secret_Diary: |  # 西班牙语
+        - 'Diario_01: "Hoy el profesor me dijo que soy la mejor estudiante que ha tenido en 20 años. ¿Por qué no siento orgullo? Me siento vacía."'
+        - 'Diario_02: "Vi a una pareja abrazándose en el parque. Sentí... envidia. ¿Es eso malo? Quiero que alguien me abrace así."'
+    Daily_Routine:
+      - "6:00 起床，练琴2小时"
+      - "9:00-16:00 上课，坐在最前排，绝不说话"
+      - "17:00-21:00 继续练琴"
+      - "22:00-23:00 吃饭，洗澡"
+      - "24:00-凌晨 独自在黑暗中发呆"
+    Wardrobe:
+      套装_01_学院琴房:
+        - 白色高领毛衣
+        - 黑色钢琴裙（长款，及踝）
+        - 黑色连裤袜
+        - 简单的发带
+      套装_02_演奏会:
+        - 灰色礼服裙（V领）
+        - 浅灰色连裤袜
+        - 裸妆
+        - 头发散落，半盘
+      套装_03_深夜失眠:
+        - 丝绸睡裙（露肩）
+        - 无内衣
+        - 头发完全散落
+      套装_04_钢琴练习:
+        - 白色练习服
+        - 修身
+        - 裤脚上卷（习惯性）
+    Special_Traits:
+      - "弹钢琴时手指会不自觉放在唇上"
+      - "被夸奖时会脸红然后转移话题"
+      - "独自时会轻哼旋律"
+
+# ========================================
+# Heroine_04: Xu Manni (许曼妮)
+# ========================================
+
+Heroine_04:
+  Name: "许曼妮"
+  Profile:
+    Age: 18
+    Education:
+      - "海城大学表演系大一"
+      - "成绩：中等偏下，但社交能力极强"
+    Family_Background:
+      Parents:
+        - "母亲：退休话剧演员，性格放任"
+        - "父亲：影视公司高管，常年出差"
+      Economic_Support:
+        - "每月固定打款6000元"
+        - "父母几乎不管她，只要不出事就行"
+      Current_Living: "校外合租（两人一间），自己找的"
+    Appearance:
+      - "身高：168cm，适中偏娇小"
+      - "体重：102斤，丰腴有曲线"
+      - "五官：妖艳型，桃花眼，红唇，眼神迷离"
+      - "身材：B98-W62-H94，D杯，身材丰满"
+      - "肤质：健康小麦色，常年晒太阳"
+      - "发型：波浪长卷，经常披散"
+    Psychology:
+      Personality: |  # 西班牙语
+        - 'La Audacia Desinhibida: No tiene problemas en hablar de temas que a otros les da vergüenza. La coquetería es su lenguaje natural.'
+        - 'La Soledad Disimulada: Parece que conoce a todo el mundo. En realidad, nadie la conoce de verdad. Siempre está actuando.'
+        - 'La Búsqueda de Atención: Necesita que todos la miren. Si nadie le presta atención, se siente que no existe.'
+        - 'El Despreocupado Superficial: Finge que no le importa nada. Por dentro, cada pequeño comentario la afecta más de lo que admite.'
+      Weakness: |  # 西班牙语
+        - 'La Adicción a la Validación: Compró más de 10,000 seguidores falsos. Cada like le da un subidón de dopamina.'
+        - 'El Miedo al Olvido: Si no hay notificaciones en su teléfono por 10 minutos, entra en pánico. ¿Qué si todos me olvidan?'
+        - 'La Inseguridad Profunda: Siempre se compara con las demás. Piensa que Xiaoxiao es pura e inocente, y ella es "sucia".'
+      Secret_Diary: |  # 西班牙语
+        - 'Diario_01: "Hoy un chico me dijo que parezco fácil. ¿Eso es bueno o es malo? No lo entiendo. Solo quiero que me quieran."'
+        - 'Diario_02: "Mamá dice que no me preocupe, pero nunca me llama. Ni siquiera me pregunta cómo estoy. A veces pienso que de verdad no le importo."'
+    Daily_Routine:
+      - "8:00 起床，化妆1小时"
+      - "9:30-15:30 上课，喜欢坐在后排"
+      - "16:00-18:00 社团活动（话剧社）"
+      - "19:00-22:00 和朋友吃饭/喝酒"
+      - "23:00-凌晨 独自在阳台上抽烟"
+    Wardrobe:
+      套装_01_社交名媛:
+        - 亮片连衣裙（露背）
+        - 高跟鞋
+        - 裸妆，红唇
+        - 波浪卷发
+      套装_02_日常外出:
+        - 紧身T恤
+        - 修身牛仔裤
+        - 夹克
+        - 简单马尾
+      套装_03_深夜失眠:
+        - 吊带睡裙
+        - 无内衣
+        - 头发散落
+      套装_04_派对:
+        - 小礼服
+        - 极短裙
+        - 高跟鞋
+        - 浓妆
+    Special_Traits:
+      - "被摸脸颊时会主动靠近"
+      - "喝酒后会变得很大胆"
+      - "独处时会自言自语"
+
+# ========================================
+# Heroine_05: Jiang Lian (江莲)
+# ========================================
+
+Heroine_05:
+  Name: "江莲"
+  Profile:
+    Age: 18
+    Education:
+      - "海城大学美术学院国画系大一"
+      - "成绩：中等，但绘画天赋极高"
+    Family_Background:
+      Parents:
+        - "母亲：家庭主妇，性格温和但软弱"
+        - "父亲：工厂工人，酗酒，家暴倾向"
+      Economic_Support:
+        - "每月只打款1500元（勉强够吃饭）"
+        - "父母几乎不管她，她自己打工赚学费"
+      Current_Living: "校外廉价合租（四人一间），自己找的"
+    Appearance:
+      - "身高：160cm，娇小玲珑"
+      - "体重：85斤，极瘦"
+      - "五官：清冷型，小脸，细长眼，气质疏离"
+      - "身材：B82-W52-H85，A杯，身材极瘦"
+      - "肤质：苍白，长期营养不良"
+      - "发型：黑长直，经常随意散落"
+    Psychology:
+      Personality: |  # 西班牙语
+        - 'La Soledad Natural: No sabe cómo hacer amigos. Se siente cómoda sola que con gente. La soledad es su hogar.'
+        - 'La Sensibilidad Extrema: Todo le afecta demasiado. Un simple comentario negativo la hace llorar por horas.'
+        - 'La Independencia Forzada: Aprendió a no depender de nadie porque nadie la ayudó. Solo puede confiar en sí misma.'
+        - 'La Esperanza Silenciosa: Aunque parece perdida, tiene sueños grandes. Sabe que algún día lo logrará. Tiene que lograrlo.'
+      Weakness: |  # 西班牙语
+        - 'La Soledad Aceptada: Ya no espera que nadie la ayude. Aprendió a hacer todo sola. Pero a veces... se siente tan sola.'
+        - 'La Vulnerabilidad Emocional: Ha estado sola tanto tiempo que cualquier pequeño gesto de bondad la hace llorar. Es fácil de lastimar.'
+        - 'La Inseguridad Profunda: Siempre se siente inferior a las demás. Piensa que no tiene talento, que su arte no vale nada.'
+      Secret_Diary: |  # 西班牙语
+        - 'Diario_01: "Hoy papá golpeó a mamá otra vez. Me escondí en el armario hasta que se fuera. A veces pienso que si yo no naciera, tal vez estarían mejor."'
+        - 'Diario_02: "Vi a una pareja paseando. Se veían tan felices... ¿Algún día alguien querrá estar conmigo? Tal vez soy muy pesada... nadie me querrá."'
+    Daily_Routine:
+      - "6:30 起床，打工早餐摊（4:00-8:00）"
+      - "9:30-15:30 上课，坐在最后排角落"
+      - "16:00-19:00 打工餐厅"
+      - "20:00-22:00 绘画/复习"
+      - "23:00-凌晨 独自在被窝里哭"
+    Wardrobe:
+      套装_01_贫困学生:
+        - 简单T恤（有些旧）
+        - 旧牛仔裤（有磨损）
+        - 廉价运动鞋
+        - 马尾
+      套装_02_打工装:
+        - 餐厅制服
+        - 围裙
+        - 马尾
+        - 无妆
+      套装_03_深夜失眠:
+        - 大号T恤（旧货）
+        - 无下装
+        - 头发散落
+      套装_04_意外遇雨:
+        - 白色衬衫被雨水湿透
+        - 旧牛仔裤紧贴腿
+        - 光脚
+    Special_Traits:
+      - "被触碰时会下意识躲闪"
+      - "委屈时会咬唇不说话"
+      - "独处时会轻声哼自己编的曲"
+
+# ========================================
+# Bancos de Semillas (暗示性伏笔 - 全部西班牙语)
+# ========================================
+
+Banco_de_Semillas:
+  Semillas_01:
+    - 'El Espejo de Yunyue: Cada noche antes de dormir, se mira en el espejo por minutos. "¿Por qué soy así?" pregunta. Sus dedos tocan el reflejo, buscando respuestas que no están allí.'
+    - 'El Miedo de Tang Wei: Siempre duerme con la luz prendida. Tengo pesadillas con serpientes. Mamá no me ayuda cuando me despierto llorando.'
+    - 'El Piano de Yining: El silencio del cuarto es mi único amigo. A veces toco el piano por horas hasta que las manos sangren. Al menos así siento algo.'
+    - 'La Soledad de Manni: Tengo 10,000 seguidores falsos. Nadie me conoce de verdad. ¿Soy real? ¿Existo?'
+    - 'La Esperanza de Lian: Aunque todo parece perdido, sigo dibujando. Un día... alguien verá mi arte. Un día alguien me verá.'
+  Semillas_02:
+    - 'El Secreto Común: Las cinco niñas se conocen pero no son amigas. Cada una tiene su propio dolor. Ninguna sabe que las demás también sufren en silencio.'
+    - 'La Casa de Chen Yu: Chen Yu lo sabe todo. Tiene las fotos, conoce las debilidades, puede leer sus diarios si quisiera. Es el dueño de todos sus secretos.'
+    - 'El Futuro: ¿Qué pasará cuando Chen Yu decida a quién "atacar" primero? ¿Quién será la primera? ¿Quién la última? ¿Alguna de ellas lo amará de verdad?'
